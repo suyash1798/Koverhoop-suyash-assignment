@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class Searchapi {
-  base_api = 'http://www.omdbapi.com/?apikey=cdc5c613';
+  base_api = 'https://www.omdbapi.com/?apikey=cdc5c613';
 
   constructor(private http: HttpClient) {
   }
