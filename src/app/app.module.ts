@@ -16,7 +16,7 @@ import {DetailpanelComponent} from './components/detailpanel';
     DetailpanelComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

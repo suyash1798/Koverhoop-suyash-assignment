@@ -5,4 +5,6 @@ export interface MovieDetail {
   Director:string;
   Production:string;
   BoxOffice:string;
+  Poster:string;
+  Title:string;
 }

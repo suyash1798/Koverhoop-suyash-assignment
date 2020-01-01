@@ -7,32 +7,42 @@ import {MovieDetail} from '../models/MovieDetail';
 @Component({
   selector: 'app-search-panel',
   template: `
-    <form class="row p-2" style="width: 100%" [formGroup]="search_form" (ngSubmit)="onSearch()">
-      <div class="col-3">
-        <input class="form-control" formControlName="name" placeholder="Enter movies/series name">
+    <form class="row p-2 mx-sm-auto" style="width: 100%" [formGroup]="search_form" (ngSubmit)="onSearch()">
+      <div class="col-sm-6 col-md-3 my-2 mx-sm-auto">
+        <input class="form-control w-100" formControlName="name" placeholder="Enter movies/series name">
       </div>
-      <div class="col-3">
-        <input type="number" class="form-control" formControlName="year" placeholder="year">
+      <div class="col-sm-6 col-md-3 my-2 mx-sm-auto">
+        <input type="number" class="form-control w-100" formControlName="year" placeholder="year">
       </div>
-      <div class="col-3">
-        <select class="form-control" formControlName="type">
+      <div class="col-sm-6 col-md-3 my-2 mx-sm-auto">
+        <select class="form-control w-100" formControlName="type">
           <option value="movie">Movies</option>
           <option value="series">Series</option>
           <option value="Episode">Episode</option>
         </select>
       </div>
-      <div class="col-3">
+      <div class="col-sm-6 col-md-3 my-2 mx-sm-auto">
         <button class="btn btn-success w-100" type="submit">Search</button>
       </div>
     </form>
-    <div class="row w-100" *ngIf="movies" style="height:218px;overflow-x: scroll;overflow-y: hidden;white-space: nowrap;flex-wrap: nowrap">
-      <div class="p-1" style="max-width: 10.666667%" *ngFor="let movie of movies" (click)="onSetMovie(movie)">
+    <div class="row" *ngIf="movies" style="width:99%;margin-left: 7px;height:218px;overflow-x: scroll;overflow-y: hidden;white-space: nowrap;flex-wrap: nowrap">
+      <div class="p-1 movies-panel" *ngFor="let movie of movies" (click)="onSetMovie(movie)">
         <img [src]="movie.Poster" style="height: 100%">
       </div>
     </div>
     <app-detail-panel [movie]="this.movie"></app-detail-panel>
   `,
-  styles: [``]
+  styles: [`
+    /*.movies-panel{*/
+      /*!*max-width: 137px*!*/
+    /*}*/
+
+    /*@media only screen and (max-width: 1200px) {*/
+      /*.movies-panel{*/
+        /*max-width: 10.666667%*/
+      /*}*/
+    /*}*/
+  `]
 })
 export class SearchpanelComponent {
   search_form: FormGroup;

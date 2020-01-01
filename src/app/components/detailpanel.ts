@@ -8,10 +8,10 @@ import {MovieDetail} from '../models/MovieDetail';
   selector: 'app-detail-panel',
   template: `
     <div class="row w-100" *ngIf="movie">
-      <div class="col-6">
-        <img [src]="movie.Poster" class="align-self-end">
+      <div class="col-md-6 col-12 poster-block">
+        <img [src]="movie.Poster"  style="height: 303px">
       </div>
-      <div class="col-6">
+      <div class="col-md-6 col-12">
         <div class="row">
           <div class="col-12 my-1">
             <div class="row">
@@ -84,7 +84,19 @@ import {MovieDetail} from '../models/MovieDetail';
       </div>
     </div>
   `,
-  styles: [``]
+  styles: [`
+    .poster-block{
+      text-align: end;
+      padding-top: 3%
+    }
+
+    @media only screen and (max-width: 767px) {
+      .poster-block{
+        text-align: center;
+        padding-top: 3%
+      }
+    }
+  `]
 })
 export class DetailpanelComponent {
 
